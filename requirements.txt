@@ -1,0 +1,29 @@
+# HOD-Mamba -- Python dependencies
+# Tested on Google Colab and Kaggle (Python 3.10-3.12, CUDA 12.x, one NVIDIA T4 16 GB).
+# On Colab/Kaggle, torch, numpy, pandas, scikit-learn, scipy, matplotlib and transformers are preinstalled;
+# installing this file there only adds what is missing.
+
+# --- core numerics and data ---
+numpy>=1.24
+pandas>=2.0
+pyarrow>=14.0          # parquet I/O
+scipy>=1.10
+scikit-learn>=1.3
+
+# --- deep learning ---
+torch>=2.1             # pure-PyTorch model; no custom CUDA kernels (mamba-ssm is NOT required)
+transformers>=4.38     # DziriBERT encoder (alger-ia/dziribert): embedding and fine-tuning (notebooks 03, 03b, 10)
+
+# --- graphs and community detection (notebooks 06, 08, 11) ---
+networkx>=3.1          # Louvain baseline
+python-igraph>=0.11    # Leiden baseline
+leidenalg>=0.10
+pymetis>=2023.1        # METIS baseline
+
+# --- plotting and notebooks ---
+matplotlib>=3.7
+nbformat>=5.9
+ipykernel>=6.25
+
+# --- optional ---
+praw>=7.7              # only for re-fetching Reddit texts from IDs (scripts/rehydrate_texts.py)
